@@ -1,4 +1,4 @@
-package telas;
+package view;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +18,7 @@ public class telaCadastro extends JFrame {
     private JTextField txtFase;
     private JButton btnCadastrar;
     private JPanel telaCadastro;
-    final String URL = "jdbc:mysql://localhost:3306/testerepresentacional";
+    final String URL = "jdbc:mysql://localhost:3306/sistemarepresentacional";
     final String USER = "root";
     final String PASSWORD = "root99";
     final String INSERIR = "INSERT INTO cadastro(nome, dataNasc, curso, fase) VALUES (?,?,?,?)";
@@ -69,6 +69,12 @@ public class telaCadastro extends JFrame {
             stmtInserir.setString(4, fase);
 
             stmtInserir.executeUpdate();
+            System.out.println("Dados inseridos!");
+            JOptionPane.showMessageDialog(btnCadastrar,"Dados Inseridos");
+            txtNome.setText("");
+            txtCurso.setText("");
+            txtFase.setText("");
+            txtDataNascimento.setText("");
 
             connection.close();
         } catch (Exception e) {
@@ -77,6 +83,6 @@ public class telaCadastro extends JFrame {
     }
 
     public static void main(String[] args) {
-        telas.telaCadastro tela = new telaCadastro();
+        view.telaCadastro tela = new telaCadastro();
     }
 }

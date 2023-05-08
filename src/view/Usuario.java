@@ -1,4 +1,4 @@
-package telas;
+package view;
 
 public class Usuario {
     public String nome;
